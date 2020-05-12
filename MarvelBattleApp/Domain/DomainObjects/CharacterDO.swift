@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - CharacterDO
-struct : Codable {
+struct CharacterDO: Codable {
     let id: Int
     let name, description: String
     let modified: String
