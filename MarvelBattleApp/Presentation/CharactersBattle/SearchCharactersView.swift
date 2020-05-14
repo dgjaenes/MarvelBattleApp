@@ -19,7 +19,7 @@ struct SearchCharactersView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 
-                NavigationLink(destination: ArenaView(viewModel: ArenaViewModel(interactor: InteractorProvaider.getCharactersInteractor()))) {
+                NavigationLink(destination: GeneralRouting.getArenaView()) {
                     HStack(alignment: .center)
                     {
                         Text("Arena")
@@ -35,7 +35,7 @@ struct SearchCharactersView: View {
                 .tag("Arena")
                 .frame(height: 40, alignment: .leading)
                 
-                NavigationLink(destination: ArenaView(viewModel: ArenaViewModel(interactor: InteractorProvaider.getCharactersInteractor()))) {
+                NavigationLink(destination: GeneralRouting.getRankingView()) {
                     HStack(alignment: .center)
                     {
                         Text("Ranking")
@@ -62,14 +62,14 @@ struct SearchCharactersView: View {
                         .padding(.leading, 20)
                     
                 } else {
-                    //listCharacters(list: viewModel.dataSource)
+                    
                     List(self.viewModel.dataSource) { item in
-                                NavigationLink(destination: CharacterDetailView(viewModel: item)) {
-                                    CharacterResultRow.init(viewModel: item, showButton: false, index: nil, action: {_ in })
-                                }
-                            }
-                        .padding(.leading, 8)
-                        .frame(alignment: .topLeading)
+                        NavigationLink(destination: GeneralRouting.getDetailView(viewModel: item)) {
+                            CharacterResultRow.init(viewModel: item, showButton: false, index: nil, showIndex: false, action: {_ in })
+                        }
+                    }
+                    .padding(.leading, 8)
+                    .frame(alignment: .topLeading)
                 }
                 
             }

@@ -14,17 +14,30 @@ struct CharacterResultRow: View , Identifiable{
     var index: Int?
     let viewModel: CharacterResultViewModel
     var showButton = false
+    var showIndex = false
     var action : (_ ind : Int) -> Void
     
-    init(viewModel: CharacterResultViewModel, showButton : Bool, index: Int?, action: @escaping (_ ind : Int) -> Void) {
+    init(viewModel: CharacterResultViewModel, showButton : Bool, index: Int?, showIndex: Bool, action: @escaping (_ ind : Int) -> Void) {
         self.viewModel = viewModel
         self.index = index
         self.showButton = showButton
         self.action = action
+        self.showIndex = showIndex
     }
     
     var body: some View {
         HStack {
+            if showIndex {
+                VStack() {
+                    Text(String(index ?? 0))
+                }
+                .frame(alignment: .leading)
+                .foregroundColor(Color.black)
+                .padding(10)
+                .cornerRadius(15)
+                .background(Color(.yellow))
+            }
+            
             VStack {
                 if (viewModel.image != nil ) {
                     Image(uiImage: UIImage(data: viewModel.image!)!)
@@ -48,7 +61,7 @@ struct CharacterResultRow: View , Identifiable{
             .padding(.leading, 8)
             
             Spacer()
-
+            
             if showButton {
                 VStack() {
                     Button("Select", action: self.executeAction)

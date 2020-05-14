@@ -16,12 +16,15 @@ class ArenaViewModel: ObservableObject {
     @Published var player2: CharacterResultViewModel?
     @Published var alertPLayWinner: Bool = false
     @Published var playerWinner: CharacterResultViewModel?
+    @Published var enableButton: Bool = false
     
     private let interactor: CharacterInteractorProtocol
+    private let rankingInteractor: PlayerInteractorProtocol
     private var disposables = Set<AnyCancellable>()
     
-    init(interactor: CharacterInteractorProtocol, scheduler: DispatchQueue = DispatchQueue(label: "ArenaViewModel")) {
+    init(interactor: CharacterInteractorProtocol, rankingInteractor: PlayerInteractorProtocol, scheduler: DispatchQueue = DispatchQueue(label: "ArenaViewModel")) {
         self.interactor = interactor
+        self.rankingInteractor = rankingInteractor
         $name
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
@@ -64,6 +67,7 @@ class ArenaViewModel: ObservableObject {
         }
         self.dataSource = []
         self.name = ""
+        self.enableButton = player1 != nil && player2 != nil
     }
     
     func initView() {
@@ -73,6 +77,7 @@ class ArenaViewModel: ObservableObject {
         self.player2 = nil
         self.playerWinner = nil
         self.alertPLayWinner = false
+        self.enableButton = false
     }
     
     func playBattle() {
@@ -82,7 +87,7 @@ class ArenaViewModel: ObservableObject {
             playerWinner = player1
         }
         alertPLayWinner = true
-        //reset()
+        rankingInteractor.setValueRanking(values: [player1!.getPlayer(), player2!.getPlayer()])
     }
     
     private func getImagenes() {

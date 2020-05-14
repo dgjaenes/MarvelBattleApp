@@ -21,6 +21,13 @@
 		22B8AC9C246AD31C002DFEA3 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8AC9B246AD31C002DFEA3 /* CharacterDetailView.swift */; };
 		22B8AC9E246AEA5B002DFEA3 /* ArenaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8AC9D246AEA5B002DFEA3 /* ArenaView.swift */; };
 		22B8ACA0246C05EE002DFEA3 /* ArenaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8AC9F246C05EE002DFEA3 /* ArenaViewModel.swift */; };
+		22B8ACA2246D5209002DFEA3 /* PlayerRepositoryImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACA1246D5209002DFEA3 /* PlayerRepositoryImplement.swift */; };
+		22B8ACA9246D585D002DFEA3 /* PlayerRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACA8246D585D002DFEA3 /* PlayerRepositoryProtocol.swift */; };
+		22B8ACAB246D59A4002DFEA3 /* PlayerInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACAA246D59A4002DFEA3 /* PlayerInteractorProtocol.swift */; };
+		22B8ACAE246D6BEE002DFEA3 /* PlayerInteractorImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACAD246D6BEE002DFEA3 /* PlayerInteractorImplement.swift */; };
+		22B8ACB0246D718D002DFEA3 /* GeneralRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACAF246D718D002DFEA3 /* GeneralRouting.swift */; };
+		22B8ACB2246D73F8002DFEA3 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACB1246D73F8002DFEA3 /* RankingView.swift */; };
+		22B8ACB4246D75EB002DFEA3 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8ACB3246D75EB002DFEA3 /* RankingViewModel.swift */; };
 		22CA2F892468BCB300C47E19 /* MarvelBattleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA2F882468BCB300C47E19 /* MarvelBattleAppTests.swift */; };
 		22DC06222469B48F009104B2 /* FeatureProvaider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC06202469B48F009104B2 /* FeatureProvaider.swift */; };
 		22DC06232469B48F009104B2 /* InteractorProvaider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC06212469B48F009104B2 /* InteractorProvaider.swift */; };
@@ -56,6 +63,13 @@
 		22B8AC9B246AD31C002DFEA3 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		22B8AC9D246AEA5B002DFEA3 /* ArenaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaView.swift; sourceTree = "<group>"; };
 		22B8AC9F246C05EE002DFEA3 /* ArenaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaViewModel.swift; sourceTree = "<group>"; };
+		22B8ACA1246D5209002DFEA3 /* PlayerRepositoryImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepositoryImplement.swift; sourceTree = "<group>"; };
+		22B8ACA8246D585D002DFEA3 /* PlayerRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepositoryProtocol.swift; sourceTree = "<group>"; };
+		22B8ACAA246D59A4002DFEA3 /* PlayerInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInteractorProtocol.swift; sourceTree = "<group>"; };
+		22B8ACAD246D6BEE002DFEA3 /* PlayerInteractorImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInteractorImplement.swift; sourceTree = "<group>"; };
+		22B8ACAF246D718D002DFEA3 /* GeneralRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRouting.swift; sourceTree = "<group>"; };
+		22B8ACB1246D73F8002DFEA3 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		22B8ACB3246D75EB002DFEA3 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		22CA2F862468BCB300C47E19 /* MarvelBattleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelBattleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CA2F882468BCB300C47E19 /* MarvelBattleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelBattleAppTests.swift; sourceTree = "<group>"; };
 		22CA2F8A2468BCB300C47E19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +113,8 @@
 				22B8AC9B246AD31C002DFEA3 /* CharacterDetailView.swift */,
 				22B8AC9D246AEA5B002DFEA3 /* ArenaView.swift */,
 				22B8AC9F246C05EE002DFEA3 /* ArenaViewModel.swift */,
+				22B8ACB1246D73F8002DFEA3 /* RankingView.swift */,
+				22B8ACB3246D75EB002DFEA3 /* RankingViewModel.swift */,
 			);
 			path = CharactersBattle;
 			sourceTree = "<group>";
@@ -107,9 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2265E5F224686CDF005AD752 /* DomainObjects */,
-				2265E5F824686CDF005AD752 /* ManagerRepository */,
-				2265E5F524686CDF005AD752 /* Repository */,
-				2265E5FA24686CDF005AD752 /* Interactor */,
+				22B8ACAC246D59B4002DFEA3 /* Repository */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -123,30 +137,44 @@
 			path = DomainObjects;
 			sourceTree = "<group>";
 		};
-		2265E5F524686CDF005AD752 /* Repository */ = {
+		2265E5F524686CDF005AD752 /* PlayerRepository */ = {
 			isa = PBXGroup;
 			children = (
-				2265E5F624686CDF005AD752 /* CharacterReporitoryProtocol.swift */,
-				2265E5F724686CDF005AD752 /* CharacterReporitoryImplment.swift */,
+				22B8ACA8246D585D002DFEA3 /* PlayerRepositoryProtocol.swift */,
+				22B8ACA1246D5209002DFEA3 /* PlayerRepositoryImplement.swift */,
 			);
-			path = Repository;
+			path = PlayerRepository;
 			sourceTree = "<group>";
 		};
-		2265E5F824686CDF005AD752 /* ManagerRepository */ = {
+		2265E5F824686CDF005AD752 /* MarvelRepository */ = {
 			isa = PBXGroup;
 			children = (
 				2265E5F924686CDF005AD752 /* ManagerMarvelRepository.swift */,
+				2265E5F624686CDF005AD752 /* CharacterReporitoryProtocol.swift */,
+				2265E5F724686CDF005AD752 /* CharacterReporitoryImplment.swift */,
+				2265E5FA24686CDF005AD752 /* Interactor */,
 			);
-			path = ManagerRepository;
+			path = MarvelRepository;
 			sourceTree = "<group>";
 		};
 		2265E5FA24686CDF005AD752 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				2265E5FB24686CDF005AD752 /* CharacterInteractorImplement.swift */,
 				2265E5FC24686CDF005AD752 /* CharacterInteractorProtocol.swift */,
+				2265E5FB24686CDF005AD752 /* CharacterInteractorImplement.swift */,
+				22B8ACAA246D59A4002DFEA3 /* PlayerInteractorProtocol.swift */,
+				22B8ACAD246D6BEE002DFEA3 /* PlayerInteractorImplement.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		22B8ACAC246D59B4002DFEA3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2265E5F524686CDF005AD752 /* PlayerRepository */,
+				2265E5F824686CDF005AD752 /* MarvelRepository */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		22CA2F872468BCB300C47E19 /* MarvelBattleAppTests */ = {
@@ -171,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				2201F98824696264002A2B30 /* CharactersBattle */,
+				22B8ACAF246D718D002DFEA3 /* GeneralRouting.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -335,24 +364,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B8ACAE246D6BEE002DFEA3 /* PlayerInteractorImplement.swift in Sources */,
 				22B8AC9E246AEA5B002DFEA3 /* ArenaView.swift in Sources */,
 				2265E5FD24686CDF005AD752 /* CharacterDO.swift in Sources */,
+				22B8ACA9246D585D002DFEA3 /* PlayerRepositoryProtocol.swift in Sources */,
 				22B8ACA0246C05EE002DFEA3 /* ArenaViewModel.swift in Sources */,
+				22B8ACA2246D5209002DFEA3 /* PlayerRepositoryImplement.swift in Sources */,
 				22ED22292468629700210A5D /* AppDelegate.swift in Sources */,
 				2265E60324686CDF005AD752 /* CharacterInteractorProtocol.swift in Sources */,
 				2265E60124686CDF005AD752 /* ManagerMarvelRepository.swift in Sources */,
 				2265E5FF24686CDF005AD752 /* CharacterReporitoryProtocol.swift in Sources */,
 				2265E60024686CDF005AD752 /* CharacterReporitoryImplment.swift in Sources */,
 				2201F99C24696264002A2B30 /* CharacterResultViewModel.swift in Sources */,
+				22B8ACB2246D73F8002DFEA3 /* RankingView.swift in Sources */,
 				2265E5FE24686CDF005AD752 /* CharactersResponseDO.swift in Sources */,
+				22B8ACB0246D718D002DFEA3 /* GeneralRouting.swift in Sources */,
 				2265E60224686CDF005AD752 /* CharacterInteractorImplement.swift in Sources */,
 				22ED222B2468629700210A5D /* SceneDelegate.swift in Sources */,
 				2201F99924696264002A2B30 /* SearchCharactersViewModel.swift in Sources */,
 				22DC06232469B48F009104B2 /* InteractorProvaider.swift in Sources */,
 				22DC06222469B48F009104B2 /* FeatureProvaider.swift in Sources */,
 				2201F99A24696264002A2B30 /* CharacterResultRow.swift in Sources */,
+				22B8ACAB246D59A4002DFEA3 /* PlayerInteractorProtocol.swift in Sources */,
 				2201F99324696264002A2B30 /* SearchCharactersView.swift in Sources */,
 				22B8AC9C246AD31C002DFEA3 /* CharacterDetailView.swift in Sources */,
+				22B8ACB4246D75EB002DFEA3 /* RankingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

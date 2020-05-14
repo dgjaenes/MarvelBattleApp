@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ArenaView: View {
     @ObservedObject var viewModel: ArenaViewModel
-    @State private var enableButtonPlay = false
     
     init(viewModel: ArenaViewModel) {
         self.viewModel = viewModel
@@ -37,7 +36,7 @@ struct ArenaView: View {
                 
                 HStack(alignment: .center) {
                     Spacer()
-                    NavigationLink(destination: CharacterDetailView(viewModel: viewModel.playerWinner!)) {
+                    NavigationLink(destination: GeneralRouting.getRankingView()) {
                         Text("Ver Ranking")
                             .frame(alignment: .center)
                             .foregroundColor(Color.white)
@@ -112,7 +111,7 @@ struct ArenaView: View {
                         .padding(8)
                         .cornerRadius(10)
                         .background(Color(.blue))
-                        .disabled(!enableButtonPlay)
+                        .disabled(!viewModel.enableButton)
                     
                     Button ("Reset", action: self.initView)
                         .frame(alignment: .trailing)
@@ -142,7 +141,7 @@ struct ArenaView: View {
                         Section {
                             List {
                                 ForEach(0 ..< viewModel.dataSource.count) {
-                                    CharacterResultRow.init(viewModel: self.viewModel.dataSource[$0], showButton: true, index: $0, action: {index in
+                                    CharacterResultRow.init(viewModel: self.viewModel.dataSource[$0], showButton: true, index: $0, showIndex: false, action: {index in
                                         self.selectedItem(selec: self.viewModel.dataSource[index])
                                     })
                                 }
@@ -159,7 +158,6 @@ struct ArenaView: View {
         .listStyle(GroupedListStyle())
         .onAppear(perform: {
             self.initView()
-            self.setBinding()
         })
     }
 }
@@ -178,24 +176,10 @@ private extension ArenaView {
                 .foregroundColor(.gray)
         }
     }
-    func nav() -> some View {
-        VStack {
-            NavigationLink(destination: CharacterDetailView(viewModel: viewModel.playerWinner!)) {
-                Text("Show Detail View")
-            }.navigationBarTitle("Navigation")
-        }
-        
-    }
-    
-    
-    func setBinding() {
-        self.enableButtonPlay = viewModel.player1 != nil && viewModel.player2 != nil
-    }
     
     func selectedItem(selec: CharacterResultViewModel) {
         print("You selected: \(selec.name)")
         viewModel.setItem(item: selec)
-        self.enableButtonPlay = viewModel.player1 != nil && viewModel.player2 != nil
     }
     
     func playBattle() {
@@ -204,7 +188,6 @@ private extension ArenaView {
     
     func initView() {
         viewModel.initView()
-        self.enableButtonPlay = viewModel.player1 != nil && viewModel.player2 != nil
     }
     
     func showRankink() {
@@ -214,6 +197,6 @@ private extension ArenaView {
 
 struct ArenaView_Previews: PreviewProvider {
     static var previews: some View {
-        ArenaView(viewModel: ArenaViewModel(interactor: InteractorProvaider.getCharactersInteractor()))
+        FeaturesProvider.buildArenaView()
     }
 }

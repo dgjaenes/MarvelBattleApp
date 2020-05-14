@@ -46,10 +46,10 @@ struct CharacterDetailView: View {
             }
             
             VStack(alignment: .leading) {
-                               Text(viewModel.description)
-                                   .font(.title)
-                           }
-                           .padding(.leading, 8)
+                Text(viewModel.description)
+                    .font(.title)
+            }
+            .padding(.leading, 8)
         }
     }
 }

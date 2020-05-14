@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - CharacterDO
 struct CharacterDO: Codable {
+    
     let id: Int
     let name, description: String
     let modified: String
@@ -19,6 +20,7 @@ struct CharacterDO: Codable {
     let comics: Comics
     let stories: Stories
     let events, series: Comics
+    var imageData : Data?
 }
 
 // MARK: - Comics
@@ -60,3 +62,8 @@ struct URLElement: Codable {
     let type, url: String
 }
 
+extension CharacterDO : Equatable {
+    static func == (lhs: CharacterDO, rhs: CharacterDO) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

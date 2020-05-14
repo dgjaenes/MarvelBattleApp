@@ -10,9 +10,9 @@ import XCTest
 import Combine
 @testable import MarvelBattleApp
 
-class MarvelBattleAppTests: XCTestCase, ObservableObject {
+class MarvelBattleAppTests: XCTestCase {
 
-    @Published var craracters = [CharacterDO]()
+    var characters = [CharacterResultViewModel]()
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -29,33 +29,28 @@ class MarvelBattleAppTests: XCTestCase, ObservableObject {
         var disposables = Set<AnyCancellable>()
         
         let interactor = CharacterInteractorImplement(repository: CharacterReporitoryImplment(session: .shared))
-        let any = interactor.getCharacters(name: "Hulk")
+        _ = interactor.getCharacters(name: "Hulk")
         .map { response in
-            self.craracters.append(contentsOf: response)
+        response.data.results.map(CharacterResultViewModel.init)
             }
             .receive(on: DispatchQueue.main)
             .sink(
               receiveCompletion: { [weak self] value in
-                guard let self = self else { return }
+                guard self != nil else { return }
                 switch value {
                 case .failure:
-                  //self.dataSource = []
+                    self?.characters = []
+                    XCTAssertEqual(self?.characters.count, 1)
                     break
                 case .finished:
+                    XCTAssertEqual(self?.characters.count, 1)
                   break
                 }
               },
-              receiveValue: { [weak self] forecast in
-                guard let self = self else { return }
-                //self.dataSource = forecast
+              receiveValue: { [weak self] characters in
+                guard self != nil else { return }
+                self?.characters = characters
             }).store(in: &disposables)
+        
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

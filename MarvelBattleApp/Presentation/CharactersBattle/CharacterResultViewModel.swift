@@ -13,6 +13,7 @@ struct CharacterResultViewModel: Identifiable {
     
     private let item: CharacterDO
     
+    var index: Int?
     var image: Data?
     
     var id: String {
@@ -42,14 +43,24 @@ struct CharacterResultViewModel: Identifiable {
     init(item: CharacterDO) {
         self.item = item
     }
+    
+    func getPlayer() -> CharacterDO {
+        var player = item
+        player.imageData = image
+        return player
+    }
+    
+    mutating func getImageLocal() {
+        self.image = item.imageData
+    }
 }
 
 extension CharacterResultViewModel: Hashable {
-  static func == (lhs: CharacterResultViewModel, rhs: CharacterResultViewModel) -> Bool {
-    return lhs.id == rhs.id
-  }
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(self.id)
-  }
+    static func == (lhs: CharacterResultViewModel, rhs: CharacterResultViewModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
 }
