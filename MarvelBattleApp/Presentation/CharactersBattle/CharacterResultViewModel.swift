@@ -12,6 +12,7 @@ import SwiftUI
 struct CharacterResultViewModel: Identifiable {
     
     private let item: CharacterDO
+    
     var image: Data?
     
     var id: String {
@@ -35,7 +36,7 @@ struct CharacterResultViewModel: Identifiable {
     }
     
     var comicsCount: Int {
-        return item.comics.items.count
+        return item.comics.available
     }
     
     init(item: CharacterDO) {
@@ -45,10 +46,10 @@ struct CharacterResultViewModel: Identifiable {
 
 extension CharacterResultViewModel: Hashable {
   static func == (lhs: CharacterResultViewModel, rhs: CharacterResultViewModel) -> Bool {
-    return lhs.item.id == rhs.item.id
+    return lhs.id == rhs.id
   }
 
   func hash(into hasher: inout Hasher) {
-    hasher.combine(self.item.id)
+    hasher.combine(self.id)
   }
 }

@@ -8,11 +8,19 @@
 
 import SwiftUI
 
-struct CharacterResultRow: View {
-    let viewModel: CharacterResultViewModel
+struct CharacterResultRow: View , Identifiable{
     
-    init(viewModel: CharacterResultViewModel) {
+    var id = UUID()
+    var index: Int?
+    let viewModel: CharacterResultViewModel
+    var showButton = false
+    var action : (_ ind : Int) -> Void
+    
+    init(viewModel: CharacterResultViewModel, showButton : Bool, index: Int?, action: @escaping (_ ind : Int) -> Void) {
         self.viewModel = viewModel
+        self.index = index
+        self.showButton = showButton
+        self.action = action
     }
     
     var body: some View {
@@ -29,8 +37,8 @@ struct CharacterResultRow: View {
                     Text("Not Image")
                 }
             }
-            
-            VStack(alignment: .leading) {
+            Spacer()
+            VStack(alignment: .center) {
                 Text(viewModel.name)
                     .font(.title)
                 Spacer()
@@ -38,6 +46,26 @@ struct CharacterResultRow: View {
                     .font(.footnote)
             }
             .padding(.leading, 8)
+            
+            Spacer()
+
+            if showButton {
+                VStack() {
+                    Button("Select", action: self.executeAction)
+                }
+                .frame(alignment: .trailing)
+                .foregroundColor(Color.white)
+                .padding()
+                .cornerRadius(9)
+                .background(Color(.black))
+            }
         }
     }
+    
+    private func executeAction() {
+        if let ind = index {
+            self.action(ind)
+        }
+    }
+    
 }

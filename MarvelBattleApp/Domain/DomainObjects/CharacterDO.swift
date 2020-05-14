@@ -15,7 +15,7 @@ struct CharacterDO: Codable {
     let modified: String
     let resourceURI: String
     let urls: [URLElement]
-    let thumbnail: ImageData
+    let thumbnail: ImageElement
     let comics: Comics
     let stories: Stories
     let events, series: Comics
@@ -46,7 +46,7 @@ struct StoriesItem: Codable {
 }
 
 // MARK: - Thumbnail
-struct ImageData: Codable {
+struct ImageElement: Codable {
     let path, ImageExtension: String
 
     enum CodingKeys: String, CodingKey {

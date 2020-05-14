@@ -19,10 +19,10 @@ struct SearchCharactersView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 
-                NavigationLink(destination: players()) {
+                NavigationLink(destination: ArenaView(viewModel: ArenaViewModel(interactor: InteractorProvaider.getCharactersInteractor()))) {
                     HStack(alignment: .center)
                     {
-                        Text("Battle")
+                        Text("Arena")
                             .fontWeight(.semibold)
                             .foregroundColor(.accentColor)
                         
@@ -32,10 +32,10 @@ struct SearchCharactersView: View {
                     }
                 }
                 .padding(EdgeInsets(top: 8, leading: 20.0, bottom: 8.0, trailing: 40.0))
-                .tag("Battle")
+                .tag("Arena")
                 .frame(height: 40, alignment: .leading)
                 
-                NavigationLink(destination: players()) {
+                NavigationLink(destination: ArenaView(viewModel: ArenaViewModel(interactor: InteractorProvaider.getCharactersInteractor()))) {
                     HStack(alignment: .center)
                     {
                         Text("Ranking")
@@ -62,14 +62,19 @@ struct SearchCharactersView: View {
                         .padding(.leading, 20)
                     
                 } else {
-                   listCharacters(list: viewModel.dataSource)
-                    .padding(.leading, 8)
-                    .frame(alignment: .topLeading)
+                    //listCharacters(list: viewModel.dataSource)
+                    List(self.viewModel.dataSource) { item in
+                                NavigationLink(destination: CharacterDetailView(viewModel: item)) {
+                                    CharacterResultRow.init(viewModel: item, showButton: false, index: nil, action: {_ in })
+                                }
+                            }
+                        .padding(.leading, 8)
+                        .frame(alignment: .topLeading)
                 }
                 
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                     .navigationBarTitle(Text("Marvel"))
+            .navigationBarTitle(Text("Marvel"))
             .listStyle(GroupedListStyle())
         }
     }
@@ -79,7 +84,7 @@ private extension SearchCharactersView {
     
     var searchField: some View {
         HStack(alignment: .center) {
-            TextField("example: Hulk", text: $viewModel.name)
+            TextField("example: Hulk, Iron Man, Thanos ...", text: $viewModel.name)
         }
     }
     
@@ -97,31 +102,3 @@ struct SearchCharactersBattleView_Previews: PreviewProvider {
     }
 }
 
-
-struct players: View {
-    
-    var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
-            Text("Player 1")
-            
-            Divider()
-                .padding(.horizontal, 25)
-            
-            Text("Player 2")
-        }
-        .fixedSize(horizontal: true, vertical: true)
-    }
-}
-
-struct listCharacters: View {
-    var list : [CharacterResultViewModel]
-    
-     var body: some View {
-        List(list) { item in
-            NavigationLink(destination: CharacterDetailView(viewModel: item)) {
-                CharacterResultRow.init(viewModel: item)
-            }
-        }
-    }
-}
