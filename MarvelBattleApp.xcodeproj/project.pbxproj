@@ -124,6 +124,7 @@
 			children = (
 				2265E5F224686CDF005AD752 /* DomainObjects */,
 				22B8ACAC246D59B4002DFEA3 /* Repository */,
+				2265E5FA24686CDF005AD752 /* Interactor */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -152,7 +153,6 @@
 				2265E5F924686CDF005AD752 /* ManagerMarvelRepository.swift */,
 				2265E5F624686CDF005AD752 /* CharacterReporitoryProtocol.swift */,
 				2265E5F724686CDF005AD752 /* CharacterReporitoryImplment.swift */,
-				2265E5FA24686CDF005AD752 /* Interactor */,
 			);
 			path = MarvelRepository;
 			sourceTree = "<group>";
